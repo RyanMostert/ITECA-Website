@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e3f2fd; /* Light blue background */
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    color: #1e88e5; /* Blue heading */
+}
+p {
+    color: #666;
+    line-height: 1.6;
+}
+.page-nav-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.page-nav-buttons .btn {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: #f48fb1; /* Pastel pink button background */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.page-nav-buttons .btn:hover {
+    background-color: #f06292; /* Darker pastel pink on hover */
+}

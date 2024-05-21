@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="root" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="root" required>
+
+        <input type="submit" value="Login">
+    </form>
+    <button type="button" onclick="window.location.href='register.html'">Register</button>
+</div>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Check if username and password are set to "root"
+        if (username === "root" && password === "root") {
+            window.location.href = "main.html"; // Redirect to main.html
+            return false; // Prevent form submission
+        }
+
+        // Simple validation, you can add more complex validation as needed
+        if (username === "" || password === "") {
+            alert("Please enter both username and password.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>
