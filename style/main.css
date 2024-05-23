@@ -1,0 +1,189 @@
+/* Reset default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3f2fd; /* Light blue background */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #64b5f6; /* Blue header */
+    color: #fff;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;
+    position: relative;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .logo .title {
+    font-size: 60px;
+    font-style: italic;
+    margin: 10px;
+}
+
+header .logo img.logo-img {
+    height: 250px; /* Adjust the height as needed */
+    width: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px 0;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: #ece6e0; /* Light beige search bar */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 5px;
+}
+
+.clothing-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.clothing-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.clothing-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    background-color: #64b5f6; /* Blue footer */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Add styles for profile and cart buttons */
+.user-options {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.user-options .profile-button img.profile-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.user-options .profile-button {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.user-options .cart-button {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #f48fb1; /* Pastel pink for cart button */
+    transition: background-color 0.3s;
+}
+
+.user-options .cart-button:hover {
+    background-color: #f06292; /* Darker pastel pink on hover */
+}
+
+/* Add styles for page navigation buttons */
+.page-nav-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.page-nav-buttons .btn {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: #f48fb1; /* Pastel pink button background */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.page-nav-buttons .btn:hover {
+    background-color: #f06292; /* Darker pastel pink on hover */
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.buttons button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.description-button {
+    background-color: #ffcc80; /* Light orange */
+    color: #333;
+}
+
+.add-to-cart-button {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+/* Add styles for description modal */
+.description-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.description-modal p {
+    margin-bottom: 10px;
+}
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionFusion</title>
+    <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <span class="title">FashionFusion</span>
+            <img src="/Images/FashionFusion_logo.png" alt="FashionFusion Logo" class="logo-img"> <!-- Logo Image Placeholder -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="about.html">About</a></li> <!-- Updated About button -->
+                <li><a href="#" onclick="redirectToContact()">Contact</a></li> <!-- Modified Contact button -->
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+        <div class="user-options">
+            <a href="#" class="profile-button">
+                <img src="/Images/profile.png" alt="Profile" class="profile-img"> <!-- Profile Image Placeholder -->
+            </a>
+            <a href="#" class="cart-button">Cart</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="banner">
+            <h2>Shop</h2>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-bar" placeholder="Search for products...">
+        </div>
+        <section class="products">
+            <!-- Clothing items display section -->
+            <div class="clothing-items" id="clothing-items">
+                <!-- Example Clothing Item Cards -->
+                <div class="clothing-item" data-name="Red Dress">
+                    <img src="/Images/RedDress.jpg" alt="Red Dress">
+                    <h3>Red Dress</h3>
+                    <p>R899.99</p>
+                    <div class="buttons">
+                        <button class="description-button">Description</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="clothing-item" data-name="Blue Jeans">
+                    <img src="/Images/Blue%20Jeans.jpg" alt="Blue Jeans">
+                    <h3>Blue Jeans</h3>
+                    <p>R649.99</p>
+                    <div class="buttons">
+                        <button class="description-button">Description</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="clothing-item" data-name="White T-Shirt">
+                    <img src="/Images/White%20T-shirts.jpg" alt="White T-Shirt">
+                    <h3>White T-Shirt</h3>
+                    <p>R199.99</p>
+                    <div class="buttons">
+                        <button class="description-button">Description</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Additional Clothing Items -->
+                <div class="clothing-item" data-name="Black Jacket">
+                    <img src="/Images/Black%20jacket.jpg" alt="Black Jacket">
+                    <h3>Black Jacket</h3>
+                    <p>R599.99</p>
+                    <div class="buttons">
+                        <button class="description-button">Description</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="clothing-item" data-name="Denim Shorts">
+                    <img src="/Images/Denim%20Shorts.jpg" alt="Denim Shorts">
+                    <h3>Denim Shorts</h3>
+                    <p>R399.99</p>
+                    <div class="buttons">
+                        <button class="description-button">Description</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="clothing-item" data-name="Striped Shirt">
+                    <img src="/Images/Striped%20Shirt.jpg" alt="Striped Shirt">
+                    <h3>Striped Shirt</h3>
+                    <p>R349.99</p>
+                    <div class="buttons">
+                        <button class="description-button">Description</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- More clothing items can be added here -->
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 FashionFusion</p>
+    </div>
+</footer>
+
+<script>
+    function redirectToContact() {
+        window.location.href = "contact.html";
+    }
+</script>
+
+</body>
+</html>
