@@ -2,6 +2,7 @@
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 body {
@@ -170,6 +171,7 @@ footer {
     background-color: #4caf50; /* Green */
     color: white;
 }
+
 /* Add styles for description modal */
 .description-modal {
     display: none;
@@ -187,3 +189,58 @@ footer {
     margin-bottom: 10px;
 }
 
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Adjusted max-width for smaller screens */
+        padding: 0 10px; /* Adjusted padding for smaller screens */
+    }
+
+    header .logo .title {
+        font-size: 40px; /* Adjusted font size for smaller screens */
+    }
+
+    .clothing-items {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted grid for smaller screens */
+    }
+
+    .user-options {
+        top: 10px; /* Adjusted top position for smaller screens */
+        right: 10px; /* Adjusted right position for smaller screens */
+    }
+
+    .buttons {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+    }
+
+    .buttons button {
+        margin-top: 10px; /* Add margin between buttons on smaller screens */
+    }
+    /* Add styles for description modal */
+    .description-modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    .description-modal p {
+        margin-bottom: 10px;
+    }
+
+    .description-modal button {
+        padding: 10px;
+        border: none;
+        background-color: #f06292; /* Darker pastel pink */
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+}

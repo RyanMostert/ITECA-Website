@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #e3f2fd; /* Light blue background */
 }
+
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -12,13 +13,16 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 h1 {
     color: #1e88e5; /* Blue heading */
 }
+
 p {
     color: #666;
     line-height: 1.6;
 }
+
 .page-nav-buttons {
     position: absolute;
     top: 10px;
@@ -37,4 +41,18 @@ p {
 
 .page-nav-buttons .btn:hover {
     background-color: #f06292; /* Darker pastel pink on hover */
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Adjusted max-width for smaller screens */
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .page-nav-buttons {
+        top: 20px; /* Adjusted top position for smaller screens */
+        right: 5px; /* Adjusted right position for smaller screens */
+    }
 }

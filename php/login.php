@@ -1,8 +1,8 @@
 <?php
 // Database credentials
 $servername = "localhost";
-$username = "root"; // replace with your actual database username
-$password = " "; // replace with your actual database password
+$username = "root";
+$password = ""; // Assuming password is empty
 $dbname = "fashionfusion";
 
 // Create connection
@@ -14,30 +14,37 @@ if ($conn->connect_error) {
 }
 
 // Retrieve form data
-$user = $_POST['username'];
-$pass = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
 
-// Prepare and bind
-$stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
-$stmt->bind_param("s", $user);
+    // Prepare and execute SQL statement to retrieve user's information
+    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-// Execute the statement
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($hashed_password);
-$stmt->fetch();
+    // Check if user exists
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $hashed_password = $row['password'];
 
-// Verify password
-if ($stmt->num_rows > 0 && password_verify($pass, $hashed_password)) {
-    // Password is correct, redirect to main.html
-    header("Location: /view/main.html");
-    exit();
-} else {
-    // Invalid username or password
-    echo "Invalid username or password.";
+        // Verify password
+        if (password_verify($pass, $hashed_password)) {
+            // Password is correct
+            echo "Login successful!";
+            // You can redirect the user to another page here
+        } else {
+            // Invalid password
+            echo "Invalid password.";
+        }
+    } else {
+        // User does not exist
+        echo "User does not exist.";
+    }
+
+    // Close statement and connection
+    $stmt->close();
+    $conn->close();
 }
-
-// Close the connection
-$stmt->close();
-$conn->close();
 ?>
