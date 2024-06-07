@@ -1,0 +1,31 @@
+{
+  "name": "fashionfusion",
+  "version": "1.0.0",
+  "description": "My Fashion Fusion Site",
+  "main": "javascript/index.js",
+  "scripts": {
+    "start": "node javascript/index.js",
+    "dev": "nodemon javascript/index.js"
+  },
+  "keywords": [
+    "starter",
+    "npm",
+    "project"
+  ],
+  "author": "Ryan Mostert",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/RyanMostert/ITECA-Website.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyanMostert/ITECA-Website/issues"
+  },
+  "homepage": "https://github.com/RyanMostert/ITECA-Website#readme"
+}
