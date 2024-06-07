@@ -2,10 +2,10 @@
   "name": "fashionfusion",
   "version": "1.0.0",
   "description": "My Fashion Fusion Site",
-  "main": "javascript/index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "node javascript/index.js",
-    "dev": "nodemon javascript/index.js"
+    "start": "node main.js",
+    "dev": "nodemon main.js"
   },
   "keywords": [
     "starter",
@@ -14,7 +14,10 @@
   ],
   "author": "Ryan Mostert",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
