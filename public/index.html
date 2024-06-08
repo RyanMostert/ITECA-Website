@@ -45,62 +45,7 @@
         </div>
         <section class="products">
             <div class="clothing-items" id="clothing-items">
-                <!-- Example Clothing Item Cards -->
-                <div class="clothing-item" data-id="1" data-name="Red Dress">
-                    <img src="/RedDress.jpg" alt="Red Dress Image">
-                    <h3>Red Dress</h3>
-                    <p>R899.99</p>
-                    <div class="buttons">
-                        <button class="description-button">Description</button>
-                        <button class="add-to-cart-button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="clothing-item" data-id="2" data-name="Blue Jeans">
-                    <img src="/Blue%20Jeans.jpg" alt="Blue Jeans Image">
-                    <h3>Blue Jeans</h3>
-                    <p>R649.99</p>
-                    <div class="buttons">
-                        <button class="description-button">Description</button>
-                        <button class="add-to-cart-button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="clothing-item" data-id="3" data-name="White T-Shirt">
-                    <img src="/White%20T-shirts.jpg" alt="White T-Shirt Image">
-                    <h3>White T-Shirt</h3>
-                    <p>R199.99</p>
-                    <div class="buttons">
-                        <button class="description-button">Description</button>
-                        <button class="add-to-cart-button">Add to Cart</button>
-                    </div>
-                </div>
-                <!-- Additional Clothing Items -->
-                <div class="clothing-item" data-id="4" data-name="Black Jacket">
-                    <img src="/Black%20jacket.jpg" alt="Black Jacket Image">
-                    <h3>Black Jacket</h3>
-                    <p>R599.99</p>
-                    <div class="buttons">
-                        <button class="description-button">Description</button>
-                        <button class="add-to-cart-button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="clothing-item" data-id="5" data-name="Denim Shorts">
-                    <img src="/Denim%20Shorts.jpg" alt="Denim Shorts Image">
-                    <h3>Denim Shorts</h3>
-                    <p>R399.99</p>
-                    <div class="buttons">
-                        <button class="description-button">Description</button>
-                        <button class="add-to-cart-button">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="clothing-item" data-id="6" data-name="Striped Shirt">
-                    <img src="/Striped%20Shirt.jpg" alt="Striped Shirt Image">
-                    <h3>Striped Shirt</h3>
-                    <p>R349.99</p>
-                    <div class="buttons">
-                        <button onclick="getDescription(prudu)">Description</button>
-                        <button class="add-to-cart-button">Add to Cart</button>
-                    </div>
-                </div>
+                <!-- Clothing items will be dynamically added here -->
             </div>
         </section>
     </div>
@@ -112,8 +57,12 @@
     </div>
 </footer>
 
-<script src="/scripts/main.js"></script> <!-- Ensure the path is correct -->
+<script src="/fetchProducts.js"></script>
+<script src="/modal.js"></script>
+<script src="/search.js"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', displayProducts);
+
     function redirectToContact() {
         window.location.href = "contact.html";
     }
