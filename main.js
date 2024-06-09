@@ -24,21 +24,9 @@ app.use(session({
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'password',
+    password: '',
     database: 'fashionfusion'
 });
-
-// Configure the email transporter
-let transporter = nodemailer.createTransport({
-    service: 'gmail', // Use the appropriate email service
-    auth: {
-        user: 'your_email@gmail.com', // Your email address
-        pass: 'your_email_password'   // Your email password
-    }
-});
-
-// Email reception address (changeable)
-let receptionEmail = 'ramostert1@gmail.com';
 
 db.connect((err) => {
     if (err) {
@@ -47,6 +35,16 @@ db.connect((err) => {
     }
     console.log('MySQL Connected...');
 });
+
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'fashionfusion146@gmail.com',
+        pass: 'FashionFusion@1'
+    }
+});
+
+let receptionEmail = 'fashionfusion146@gmail.com';
 
 app.post('/register', [
     body('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters long.'),
@@ -107,7 +105,100 @@ app.post('/login', [
     });
 });
 
-// Profile endpoint
+// Middleware to authenticate user and get user ID from session
+function authenticate(req, res, next) {
+    if (!req.session.user) {
+        return res.status(401).json({ error: 'Unauthorized access' });
+    }
+    req.userId = req.session.user.id;
+    next();
+}
+
+// Cart routes
+app.get('/api/cart', authenticate, (req, res) => {
+    const userId = req.userId;
+    const sql = 'SELECT cart.id, cart.quantity, products.* FROM cart JOIN products ON cart.product_id = products.id WHERE cart.user_id = ?';
+    db.query(sql, [userId], (err, results) => {
+        if (err) {
+            console.error('Failed to fetch cart:', err);
+            return res.status(500).json({ error: 'Failed to fetch cart.' });
+        }
+        res.json(results);
+    });
+});
+
+app.post('/api/cart', authenticate, (req, res) => {
+    const userId = req.userId;
+    const { productId, quantity } = req.body;
+
+    const checkSql = 'SELECT * FROM cart WHERE user_id = ? AND product_id = ?';
+    db.query(checkSql, [userId, productId], (err, results) => {
+        if (err) {
+            console.error('Failed to check cart:', err);
+            return res.status(500).json({ error: 'Failed to check cart.' });
+        }
+        if (results.length > 0) {
+            const updateSql = 'UPDATE cart SET quantity = quantity + ? WHERE user_id = ? AND product_id = ?';
+            db.query(updateSql, [quantity, userId, productId], (err, result) => {
+                if (err) {
+                    console.error('Failed to update cart:', err);
+                    return res.status(500).json({ error: 'Failed to update cart.' });
+                }
+                res.json({ message: 'Cart updated successfully!' });
+            });
+        } else {
+            const insertSql = 'INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)';
+            db.query(insertSql, [userId, productId, quantity], (err, result) => {
+                if (err) {
+                    console.error('Failed to add to cart:', err);
+                    return res.status(500).json({ error: 'Failed to add to cart.' });
+                }
+                res.json({ message: 'Product added to cart successfully!' });
+            });
+        }
+    });
+});
+
+app.put('/api/cart', authenticate, (req, res) => {
+    const userId = req.userId;
+    const { productId, quantity } = req.body;
+    const sql = 'UPDATE cart SET quantity = ? WHERE user_id = ? AND product_id = ?';
+    db.query(sql, [quantity, userId, productId], (err, result) => {
+        if (err) {
+            console.error('Failed to update cart:', err);
+            return res.status(500).json({ error: 'Failed to update cart.' });
+        }
+        res.json({ message: 'Cart updated successfully!' });
+    });
+});
+
+app.delete('/api/cart', authenticate, (req, res) => {
+    const userId = req.userId;
+    const { productId } = req.body;
+    const sql = 'DELETE FROM cart WHERE user_id = ? AND product_id = ?';
+    db.query(sql, [userId, productId], (err, result) => {
+        if (err) {
+            console.error('Failed to remove from cart:', err);
+            return res.status(500).json({ error: 'Failed to remove from cart.' });
+        }
+        res.json({ message: 'Product removed from cart successfully!' });
+    });
+});
+
+// Checkout and clear current user's cart
+app.post('/api/checkout', authenticate, (req, res) => {
+    const userId = req.userId;
+    const sql = 'DELETE FROM cart WHERE user_id = ?';
+    db.query(sql, [userId], (err, result) => {
+        if (err) {
+            console.error('Failed to clear cart:', err);
+            return res.status(500).json({ error: 'Failed to clear cart.' });
+        }
+        res.json({ message: 'Checkout successful and cart cleared!' });
+    });
+});
+
+// Other routes and middleware
 app.get('/profile', (req, res) => {
     if (!req.session.user) {
         return res.status(401).json({ error: 'Unauthorized access' });
@@ -127,13 +218,12 @@ app.get('/profile', (req, res) => {
     });
 });
 
-// Contact endpoint
 app.post('/contact', (req, res) => {
     const { name, email, message } = req.body;
 
     const mailOptions = {
         from: email,
-        to: receptionEmail, // Use the receptionEmail variable
+        to: receptionEmail,
         subject: `Contact Form Submission from ${name}`,
         text: message
     };
@@ -147,6 +237,7 @@ app.post('/contact', (req, res) => {
         res.json({ message: 'Email sent successfully!' });
     });
 });
+
 app.get('/products', (req, res) => {
     const sql = 'SELECT * FROM products';
     db.query(sql, (err, results) => {
@@ -164,50 +255,24 @@ app.post('/products', (req, res) => {
     db.query(sql, product, (err, result) => {
         if (err) {
             console.error('Failed to add product:', err);
-            return res.status(500).json({ error: 'Failed to add product to the database.' });
+            return res.status(500).json({ error: 'Failed to add product.' });
         }
-        res.json({ id: result.insertId, ...product });
+        res.json({ message: 'Product added successfully!', id: result.insertId });
     });
 });
 
-app.get('/products/:id', (req, res) => {
+app.delete('/products/:id', (req, res) => {
     const productId = req.params.id;
-    const sql = 'SELECT * FROM products WHERE id = ?';
-    db.query(sql, [productId], (err, results) => {
+    const sql = 'DELETE FROM products WHERE id = ?';
+    db.query(sql, [productId], (err, result) => {
         if (err) {
-            console.error('Failed to fetch product:', err);
-            return res.status(500).json({ error: 'Failed to fetch product from the database.' });
+            console.error('Failed to delete product:', err);
+            return res.status(500).json({ error: 'Failed to delete product.' });
         }
-        if (results.length === 0) {
-            return res.status(404).json({ error: 'Product not found.' });
-        }
-        res.json(results[0]);
+        res.json({ message: 'Product deleted successfully!' });
     });
-});
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.get('/register.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'register.html'));
-});
-
-app.get('/login.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
-
-app.get('/profile.html', (req, res) => {
-    if (!req.session.user) {
-        return res.redirect('/login.html');
-    }
-    res.sendFile(path.join(__dirname, 'public', 'profile.html'));
-});
-
-app.get('/cart.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'cart.html'));
 });
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server running at http://localhost:${port}/`);
 });

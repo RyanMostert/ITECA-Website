@@ -25,6 +25,15 @@ CREATE TABLE products (
                           image VARCHAR(255)
 );
 
+CREATE TABLE cart (
+                      id INT AUTO_INCREMENT PRIMARY KEY,
+                      user_id INT NOT NULL,
+                      product_id INT NOT NULL,
+                      quantity INT NOT NULL DEFAULT 1,
+                      FOREIGN KEY (user_id) REFERENCES users(id),
+                      FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
 -- Insert initial products
 INSERT INTO products (name, description, price, image) VALUES
 ('Red Dress', 'A beautiful red dress perfect for any occasion.', 899.99, '/Images/RedDress.jpg'),
