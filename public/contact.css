@@ -1,4 +1,4 @@
-body {
+.body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -15,6 +15,16 @@ body {
 }
 
 input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #90caf9; /* Light blue border */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="email"],
 textarea {
     width: 100%;
     padding: 10px;
