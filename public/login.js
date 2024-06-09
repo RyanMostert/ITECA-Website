@@ -1,33 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/login.css">
-</head>
-<body>
-
-<div class="container">
-    <h2>Login</h2>
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter username" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter password" required>
-
-        <input type="submit" value="Login">
-    </form>
-    <button type="button" onclick="window.location.href='register.html'">Register</button>
-</div>
-
-<script>
+(function() {
     document.getElementById('loginForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
+        var submitButton = event.target.querySelector('input[type="submit"]');
+
+        // Disable the submit button to prevent multiple submissions
+        submitButton.disabled = true;
+
+        // Show loading indicator (if you have one)
+        // document.getElementById('loadingIndicator').style.display = 'block';
 
         fetch('/login', {
             method: 'POST',
@@ -36,7 +19,15 @@
             },
             body: JSON.stringify({ username, password })
         })
-            .then(response => response.json())
+            .then(response => {
+                // Re-enable the submit button
+                submitButton.disabled = false;
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.error) {
                     alert(data.error);
@@ -48,9 +39,10 @@
             .catch(error => {
                 console.error('Error:', error);
                 alert('An error occurred. Please try again later.');
+            })
+            .finally(() => {
+                // Hide loading indicator
+                // document.getElementById('loadingIndicator').style.display = 'none';
             });
     });
-</script>
-
-</body>
-</html>
+})();

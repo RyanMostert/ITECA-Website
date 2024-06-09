@@ -27,10 +27,10 @@
             </ul>
         </nav>
         <div class="user-options">
-            <a href="#" class="profile-button">
+            <a href="#" id="profile-button" class="profile-button">
                 <img src="/images/profile.png" alt="Profile" class="profile-img"> <!-- Profile Image Placeholder -->
             </a>
-            <a href="#" class="cart-button">Cart</a>
+            <a href="/cart.html" class="cart-button">Cart</a>
         </div>
     </div>
 </header>
@@ -59,12 +59,28 @@
 
 <script src="/fetchProducts.js"></script>
 <script src="/search.js"></script>
+<script src="/cart.js"></script> <!-- Add the cart.js script -->
 <script>
     document.addEventListener('DOMContentLoaded', displayProducts);
 
     function redirectToContact() {
         window.location.href = "contact.html";
     }
+
+    document.getElementById('profile-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        fetch('/profile')
+            .then(response => {
+                if (response.status === 401) {
+                    window.location.href = '/login.html';
+                } else {
+                    window.location.href = '/profile.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error checking authentication status:', error);
+            });
+    });
 </script>
 
 </body>
