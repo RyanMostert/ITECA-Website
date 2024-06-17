@@ -1,0 +1,10 @@
+fashionfusion
+
+
+Url : fashionfusion.chanjary.com
+Password : e,m}#&G5s]TP
+
+156.155.253.126
+
+CREATE USER 'fushion'@'%' IDENTIFIED BY 'fushion99999';
+GRANT ALL PRIVILEGES ON *.* TO 'fushion'@'%' WITH GRANT OPTION;

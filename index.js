@@ -22,9 +22,9 @@ app.use(session({
 }));
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
+    host: '156.155.253.126',
+    user: 'fushion',
+    password: 'fushion99999',
     database: 'fashionfusion'
 });
 

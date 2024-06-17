@@ -1,3 +1,10 @@
+-- DB Host : sql16.cpt2.host-h.net
+-- DB Name : fashionfusion
+-- DB User : fashion
+-- DB Password : 2OWp4dMW90G8sDcp1Snv
+
+
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
