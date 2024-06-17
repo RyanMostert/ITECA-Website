@@ -21,9 +21,10 @@ header {
     color: #fff;
     padding: 20px 0;
     display: flex;
-    justify-content: center; /* Center content horizontally */
+    justify-content: space-between; /* Space between content */
     align-items: center;
     position: relative;
+    flex-wrap: wrap; /* Wrap content on smaller screens */
 }
 
 header .logo {
@@ -39,7 +40,7 @@ header .logo .title {
 }
 
 header .logo img.logo-img {
-    height: 250px; /* Adjust the height as needed */
+    height: 100px; /* Adjust the height as needed */
     width: auto;
 }
 
@@ -47,6 +48,7 @@ nav ul {
     list-style-type: none;
     display: flex;
     gap: 20px;
+    flex-wrap: wrap; /* Wrap navigation items on smaller screens */
 }
 
 nav ul li a {
@@ -148,8 +150,13 @@ footer {
 /* Responsive styles */
 @media only screen and (max-width: 768px) {
     .container {
-        max-width: 90%; /* Adjusted max-width for smaller screens */
+        max-width: 100%; /* Full width on smaller screens */
         padding: 0 10px; /* Adjusted padding for smaller screens */
+    }
+
+    header {
+        flex-direction: column; /* Column layout for header on smaller screens */
+        align-items: flex-start;
     }
 
     header .logo .title {
@@ -163,5 +170,15 @@ footer {
     .user-options {
         top: 10px; /* Adjusted top position for smaller screens */
         right: 10px; /* Adjusted right position for smaller screens */
+    }
+
+    nav ul {
+        justify-content: center; /* Center navigation items on smaller screens */
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 0;
     }
 }
