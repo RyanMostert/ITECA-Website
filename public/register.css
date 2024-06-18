@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e3f2fd; /* Light blue background */
+    background-color: #e3f2fd;
     margin: 0;
     padding: 0;
     display: flex;
@@ -30,7 +30,7 @@ input[type="email"] {
 }
 
 input[type="submit"] {
-    background-color: #f48fb1; /* Pastel pink button background */
+    background-color: #f48fb1;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -41,5 +41,5 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #f06292; /* Darker pastel pink on hover */
+    background-color: #f06292;
 }

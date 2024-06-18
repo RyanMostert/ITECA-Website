@@ -18,13 +18,13 @@ app.use(session({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Set to true if using HTTPS
+    cookie: { secure: false }
 }));
 
 const db = mysql.createConnection({
-    host: '156.155.253.126',
-    user: 'fushion',
-    password: 'fushion99999',
+    host: 'localhost',
+    user: 'root',
+    password: '',
     database: 'fashionfusion'
 });
 

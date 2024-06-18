@@ -2,7 +2,7 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e3f2fd; /* Light blue background */
+    background-color: #e3f2fd;
 }
 
 .container {
@@ -19,7 +19,7 @@ textarea {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #90caf9; /* Light blue border */
+    border: 1px solid #90caf9;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -29,13 +29,13 @@ textarea {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #90caf9; /* Light blue border */
+    border: 1px solid #90caf9;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
 input[type="submit"] {
-    background-color: #64b5f6; /* Blue button background */
+    background-color: #64b5f6;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -45,7 +45,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #42a5f5; /* Darker blue on hover */
+    background-color: #42a5f5;
 }
 
 .page-nav-buttons {
@@ -57,7 +57,7 @@ input[type="submit"]:hover {
 .page-nav-buttons .btn {
     margin-left: 10px;
     padding: 10px 15px;
-    background-color: #f48fb1; /* Pastel pink button background */
+    background-color: #f48fb1;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -65,12 +65,12 @@ input[type="submit"]:hover {
 }
 
 .page-nav-buttons .btn:hover {
-    background-color: #f06292; /* Darker pastel pink on hover */
+    background-color: #f06292;
 }
 
-/* Additional styles for header, footer, and main elements */
+
 header {
-    background-color: #64b5f6; /* Blue header background */
+    background-color: #64b5f6;
     color: white;
     padding: 10px 0;
 }
@@ -108,7 +108,7 @@ header nav ul li a:hover {
 }
 
 footer {
-    background-color: #64b5f6; /* Blue footer background */
+    background-color: #64b5f6;
     color: white;
     text-align: center;
     padding: 10px 0;

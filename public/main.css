@@ -1,13 +1,13 @@
-/* Reset default styles */
+
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #e3f2fd; /* Light blue background */
+    background-color: #e3f2fd;
 }
 
 .container {
@@ -17,14 +17,14 @@ body {
 }
 
 header {
-    background-color: #64b5f6; /* Blue header */
+    background-color: #64b5f6;
     color: #fff;
     padding: 20px 0;
     display: flex;
-    justify-content: space-between; /* Space between content */
+    justify-content: space-between;
     align-items: center;
     position: relative;
-    flex-wrap: wrap; /* Wrap content on smaller screens */
+    flex-wrap: wrap;
 }
 
 header .logo {
@@ -40,7 +40,7 @@ header .logo .title {
 }
 
 header .logo img.logo-img {
-    height: 100px; /* Adjust the height as needed */
+    height: 100px;
     width: auto;
 }
 
@@ -48,7 +48,7 @@ nav ul {
     list-style-type: none;
     display: flex;
     gap: 20px;
-    flex-wrap: wrap; /* Wrap navigation items on smaller screens */
+    flex-wrap: wrap;
 }
 
 nav ul li a {
@@ -65,8 +65,8 @@ main {
     padding: 10px;
     margin-bottom: 20px;
     font-size: 16px;
-    background-color: #ece6e0; /* Light beige search bar */
-    border: 1px solid #ccc; /* Gray border */
+    background-color: #ece6e0;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
@@ -90,13 +90,13 @@ main {
 }
 
 footer {
-    background-color: #64b5f6; /* Blue footer */
+    background-color: #64b5f6;
     color: #fff;
     padding: 20px 0;
     text-align: center;
 }
 
-/* Add styles for profile and cart buttons */
+
 .user-options {
     display: flex;
     gap: 20px;
@@ -122,15 +122,15 @@ footer {
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #f48fb1; /* Pastel pink for cart button */
+    background-color: #f48fb1;
     transition: background-color 0.3s;
 }
 
 .user-options .cart-button:hover {
-    background-color: #f06292; /* Darker pastel pink on hover */
+    background-color: #f06292;
 }
 
-/* Add styles for description modal */
+
 .description-modal {
     display: none;
     position: fixed;
@@ -147,33 +147,33 @@ footer {
     margin-bottom: 10px;
 }
 
-/* Responsive styles */
+
 @media only screen and (max-width: 768px) {
     .container {
-        max-width: 100%; /* Full width on smaller screens */
-        padding: 0 10px; /* Adjusted padding for smaller screens */
+        max-width: 100%;
+        padding: 0 10px;
     }
 
     header {
-        flex-direction: column; /* Column layout for header on smaller screens */
+        flex-direction: column;
         align-items: flex-start;
     }
 
     header .logo .title {
-        font-size: 40px; /* Adjusted font size for smaller screens */
+        font-size: 40px;
     }
 
     .clothing-items {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted grid for smaller screens */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
     .user-options {
-        top: 10px; /* Adjusted top position for smaller screens */
-        right: 10px; /* Adjusted right position for smaller screens */
+        top: 10px;
+        right: 10px;
     }
 
     nav ul {
-        justify-content: center; /* Center navigation items on smaller screens */
+        justify-content: center;
         width: 100%;
         margin-top: 10px;
     }

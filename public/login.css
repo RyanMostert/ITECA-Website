@@ -41,11 +41,11 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    background-color: #64b5f6; /* Blue button background */
+    background-color: #64b5f6;
     color: white;
 }
 
 input[type="submit"]:hover,
 button:hover {
-    background-color: #42a5f5; /* Darker blue on hover */
+    background-color: #42a5f5;
 }
