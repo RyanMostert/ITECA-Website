@@ -130,3 +130,8 @@ If you encounter any issues while using Fashion Fusion, try the following steps:
 - **Contact Support:** If you're still having trouble, reach out to our support team for assistance.
 
 
+## Hosting
+
+Hosting service that was used is called: Axxess
+
+![img.png](img.png)
