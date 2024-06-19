@@ -29,6 +29,7 @@ Before you begin, ensure you have met the following requirements:
 - Node.js (v14.x or higher)
 - npm (v6.x or higher)
 - MySQL (v5.7 or higher)
+- JavaScript 
 
 ## Installation
 
